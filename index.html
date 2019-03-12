@@ -20,13 +20,24 @@
             <button type="submit">Add List</button>
           </form>
         </div>
-        <div v-for="list in lists" class="row">
-          <p>{{ list.name }}</p>
+        <div v-for="list in lists" class="row" @click="selectList(list)">
+          <p>{{ list.name }} - {{ list.items.length }} items</p>
         </div>
 
       </div>
       <div class="col-sm-7">
-
+        <div class="row">
+          <h1 v-model="selectedList">{{ selectedList.name }}</h1>
+        </div>
+        <div class="row">
+          <form @submit.prevent="addItemToList">
+            <input type="text" v-model="newItemName">
+            <button type="submit">Add Item</button>
+          </form>
+        </div>
+        <div v-for="item in selectedList.items" class="row">
+          <p>{{ item }}</p>
+        </div>
       </div>
     </div>
   </div>
