@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/styles.css"/>
+  <title>Creative Project 3</title>
+</head>
+
+<body>
+<div id="app">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="row">
+          <h1>My Wishlists</h1>
+        </div>
+        <div class="row">
+          <form @submit.prevent="createList">
+            <input type="text" v-model="newListName">
+            <button type="submit">Add List</button>
+          </form>
+        </div>
+        <div v-for="list in lists" class="row">
+          <p>{{ list.name }}</p>
+        </div>
+
+      </div>
+      <div class="col-sm-7">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="/script.js"></script>
+</body>
+</html>
