@@ -25,7 +25,6 @@ body {
   display: flex;
   flex-flow: column;
   height: 100%;
-  width: 100%;
 }
 
 .footer {
@@ -33,4 +32,8 @@ body {
   background-color: #385153;
   padding: .5em 0;
   text-align: center;
+}
+
+.top {
+  margin-top: 20px;
 }
