@@ -8,11 +8,17 @@ var app = new Vue({
   },
   methods: {
     createList() {
-      this.lists.push({ name: this.newListName, items: [] });
-      this.newListName = '';
+      if (this.newListName.trim().length > 0) {
+        this.lists.push({ name: this.newListName, items: [] });
+        this.newListName = '';
+      }
     },
-    selectList(list) {
-      this.selectedList = list;
+    toggleSelectedList(list) {
+      if (list === this.selectedList) {
+        this.selectedList = {};
+      } else {
+        this.selectedList = list;
+      }
     },
     addItemToList() {
       this.selectedList.items.push(this.newItemName);

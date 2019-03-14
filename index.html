@@ -10,8 +10,8 @@
 <body>
 <div id="app" class="box">
   <div class="container">
-    <div class="row top">
-      <div class="col-sm">
+    <div class="row outer">
+      <div class="col-sm wishlists">
         <div class="row">
           <h1>My Wishlists</h1>
         </div>
@@ -22,16 +22,16 @@
           </form>
         </div>
         <br>
-        <div v-for="list in lists" class="row" @click="selectList(list)">
+        <div v-for="list in lists" class="row wishlist" v-bind:class="{ selected: list === selectedList }" @click="toggleSelectedList(list)">
           <p>{{ list.name }} - {{ list.items.length }} items</p>
         </div>
       </div>
-      <div class="col-sm">
+      <div class="col-sm ">
         <div class="row">
           <h1 v-model="selectedList">{{ selectedList.name }}</h1>
         </div>
         <div class="row">
-          <form @submit.prevent="addItemToList">
+          <form v-show="Object.keys(selectedList).length > 0" @submit.prevent="addItemToList">
             <input type="text" v-model="newItemName">
             <button type="submit">Add Item</button>
           </form>

@@ -34,6 +34,35 @@ body {
   text-align: center;
 }
 
-.top {
-  margin-top: 20px;
+.outer {
+  flex: 1 1 auto;
+  display: flex;
+  margin: 20px 0;
+  height: 100%;
+}
+
+.col-sm > .row {
+  margin: 0 20px;
+}
+
+.wishlists {
+  border-right: gray 2px solid;
+}
+
+.wishlist {
+  padding: 8px;
+  vertical-align: center;
+}
+
+.wishlist > p {
+  margin: auto 0;
+}
+
+.wishlist:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+.selected {
+  background-color: lightblue;
 }
