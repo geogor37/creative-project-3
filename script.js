@@ -13,6 +13,12 @@ var app = new Vue({
         this.newListName = '';
       }
     },
+    deleteList(list) {
+      if (list === this.selectedList) {
+        this.selectedList = {};
+      }
+      this.lists.splice(this.lists.indexOf(list), 1);
+    },
     toggleSelectedList(list) {
       if (list === this.selectedList) {
         this.selectedList = {};
@@ -21,8 +27,13 @@ var app = new Vue({
       }
     },
     addItemToList() {
-      this.selectedList.items.push(this.newItemName);
-      this.newItemName = '';
+      if (this.newItemName.trim().length > 0) {
+        this.selectedList.items.push(this.newItemName);
+        this.newItemName = '';
+      }
     },
+    deleteItem(item) {
+      this.selectedList.items.splice(this.selectedList.items.indexOf(item), 1);
+    }
   },
 });

@@ -54,8 +54,20 @@ body {
   vertical-align: center;
 }
 
-.wishlist > p {
+.wishlist > * {
   margin: auto 0;
+  display: inline-block;
+}
+
+.wishlist > p {
+  font-size: 20px;
+}
+
+.wishlist > button {
+  margin-left: 8px;
+  margin-right: 8px;
+  height: auto;
+  float: right;
 }
 
 .wishlist:hover {

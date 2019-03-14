@@ -22,8 +22,10 @@
           </form>
         </div>
         <br>
-        <div v-for="list in lists" class="row wishlist" v-bind:class="{ selected: list === selectedList }" @click="toggleSelectedList(list)">
-          <p>{{ list.name }} - {{ list.items.length }} items</p>
+        <h4 v-show="lists.length === 0" style="font-style: italic">You have no wishlists! Add one to get started.</h4>
+        <div v-for="list in lists" class="wishlist" v-bind:class="{ selected: list === selectedList }" @click="toggleSelectedList(list)">
+          <p><b>{{ list.name }}</b> - {{ list.items.length }} items</p>
+          <button @click.stop="deleteList(list)">Delete</button>
         </div>
       </div>
       <div class="col-sm ">
@@ -37,9 +39,12 @@
           </form>
         </div>
         <br>
-        <div v-for="item in selectedList.items" class="row">
-          <p>{{ item }}</p>
-        </div>
+        <ul>
+          <li v-for="item in selectedList.items" class="wishlist">
+            <p>{{ item }}</p>
+            <button @click.stop="deleteItem(item)">Delete</button>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
